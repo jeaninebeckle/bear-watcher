@@ -1,4 +1,10 @@
 import utils from "../helpers/utils.js"
+import bearData from "../helpers/data/bearData.js"
+
+const clickSubmitEvent = (e) => {
+  e.preventDefault();
+  bearData.addBearToArray();
+}
 
 const makeForm = () => {
   const domString = `
@@ -13,14 +19,16 @@ const makeForm = () => {
     </div>
     <div class="form-group">
       <label for="addImage"></label>
-      <input type="url" class="form-control" id="addImage" placeholder="Insert an image link of the bear here!" required>
+      <input type="text" class="form-control" id="addImage" placeholder="Insert an image link of the bear here!" required>
     </div>
-    <button type="button" class="btn btn-outline-secondary">Submit</button>
+    <button id="make-bear" type="button" class="btn btn-outline-secondary">Submit</button>
   </div>
 </form>
     `;
 
 utils.printToDom("#bearForm", domString);
+
+document.querySelector("#make-bear").addEventListener("click", clickSubmitEvent)
 }
 
 export default { makeForm }
