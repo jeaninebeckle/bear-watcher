@@ -1,9 +1,13 @@
 import utils from "../helpers/utils.js"
 import bearData from "../helpers/data/bearData.js"
+import showBear from "./river.js";
 
 const clickSubmitEvent = (e) => {
   e.preventDefault();
   bearData.addBearToArray();
+  document.getElementById("inputName").value = null;
+  document.getElementById("addImage").value = null;
+  showBear.makeCard();
 }
 
 const makeForm = () => {
