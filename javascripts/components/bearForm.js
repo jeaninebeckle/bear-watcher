@@ -6,7 +6,7 @@ const clickSubmitEvent = (e) => {
   e.preventDefault();
   bearData.addBearToArray();
   document.getElementById("inputName").value = null;
-  document.getElementById("inputName").value = null;
+  document.getElementById("addImage").value = null;
   showBear.makeCard();
 }
 
