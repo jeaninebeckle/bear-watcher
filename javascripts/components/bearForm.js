@@ -1,9 +1,13 @@
 import utils from "../helpers/utils.js"
 import bearData from "../helpers/data/bearData.js"
+import showBear from "./river.js";
 
 const clickSubmitEvent = (e) => {
   e.preventDefault();
   bearData.addBearToArray();
+  document.getElementById("inputName").value = null;
+  document.getElementById("inputName").value = null;
+  showBear.makeCard();
 }
 
 const makeForm = () => {
@@ -12,7 +16,7 @@ const makeForm = () => {
 
 <form>
   <div class="bear">
-    <p>Do you have a furry friend that you want to keep an eye on? We just need a few key pieces of information. This will bearly take any time at all.</p>
+    <h5>Do you have a furry friend that you want to keep an eye on? We just need a few key pieces of information. This will bearly take any time at all.</h5>
     <div class="form-group">
       <label for="inputName"></label>
       <input type="text" class="form-control" id="inputName" aria-describedby="emailHelp" placeholder="What's your bear's name?" required>
