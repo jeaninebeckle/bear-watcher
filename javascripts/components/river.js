@@ -14,15 +14,15 @@ const makeCard = () => {
         <class="card-body">
           <h3 class="card-title">${bear.name}</h3>
           <button value="Attempt" type="button" class="attempt btn btn-outline-warning">Fishing Attempt</button><p>Latest attempt:<br> 01/01/2020 00:00</p><br>
-          <button id="success" type="button" class="btn btn-outline-success">Fishing Success</button><p>Latest success:<br> 01/01/2020 00:00</p>
+          <button value="Success" type="button" class="success btn btn-outline-success">Fishing Success</button><p>Latest success:<br> 01/01/2020 00:00</p>
           <h6>Total number of fish caught: </h6>
     </div>
     `;
   }
 
   utils.printToDom("#river", domString)
-  document.querySelector(".attempt").addEventListener("click", bearData.clickAttemptEvent)
-  // document.querySelector("#success").addEventListener("click", clickSuccessEvent)
+  document.querySelector(".attempt").addEventListener("click", bearData.clickButtonEvent)
+  document.querySelector(".success").addEventListener("click", bearData.clickButtonEvent)
 }
 
 // const clickAttemptEvent = (e) => {

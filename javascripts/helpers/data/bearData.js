@@ -1,18 +1,19 @@
 import utils from "../utils.js";
 
 
+
 let bearArray = [];
 let bearId = 0;
 
 
 
-const clickAttemptEvent = (e) => {
-  e.preventDefault();
+const clickButtonEvent = (e) => {
+
   let fishingLog = {};
+
   fishingLog['status'] = e.target.value;
   fishingLog['timeStamp'] = utils.getDate()
   fishingLog['bearId'] = e.target.closest(".bear-card").id
-  // newBear.push(fishingLog)
   console.log(fishingLog)
 }
 
@@ -35,4 +36,4 @@ const getBear = () => {
   return bearArray;
 };
 
-export default { addBearToArray, getBear, clickAttemptEvent }
+export default { addBearToArray, getBear, clickButtonEvent }
