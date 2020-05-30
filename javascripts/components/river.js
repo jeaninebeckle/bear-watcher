@@ -13,10 +13,11 @@ const makeCard = () => {
     <div class="col-sm">
     <div class="card" style="width: 18rem;">
       <img class="card-img-top" src="${bear.imgUrl}" alt="Bear image">
-        <div class="card-body">
-          <h5 class="card-title">${bear.name}</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+        <class="card-body">
+          <h3 class="card-title">${bear.name}</h3>
+          <button type="button" class="btn btn-outline-warning">Fishing Attempt</button><p>Latest attempt:<br> 01/01/2020 00:00</p><br>
+          <button type="button" class="btn btn-outline-success">Fishing Success</button><p>Latest success:<br> 01/01/2020 00:00</p>
+          <h6>Total number of fish caught: </h6>
           </div>
           </div>
         </div>
