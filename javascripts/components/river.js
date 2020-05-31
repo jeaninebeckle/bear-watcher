@@ -29,31 +29,35 @@ const makeCard = () => {
 const makeGrid = () => {
   const myLog = bearData.getLog();
 
-  let domString = '';
+  let rowString = '';
 
-  for (let i = 0; i < myLog.length; i++) {
-    const logData = myLog[i];
-    
-    domString += `
-    <table class="table table-sm">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Status</th>
-      <th scope="col">Time</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">${logData.number}</th>
-      <td>${logData.status}</td>
-      <td>${logData.timeStamp}</td>
-    </tr>
-  </tbody>
-</table>
-    `;
-  }
+  const headerString = `
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Status</th>
+        <th scope="col">Time</th>
+      </tr>
+    </thead>
+  `;
+
+for (let i = 0; i < myLog.length; i++) {
+  const logData = myLog[i];
+  
+  rowString += `
+    <tbody>
+      <tr>
+        <th scope="row">${logData.number}</th>
+        <td>${logData.status}</td>
+        <td>${logData.timeStamp}</td>
+      </tr>
+    </tbody>
+  `;
+}
+
+  let domString = `<table class="table table-sm">` + headerString + rowString + `</table>`
   utils.printToDom("#grid", domString)
+
 }
 
 // const clickAttemptEvent = (e) => {
