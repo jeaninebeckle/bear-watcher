@@ -4,22 +4,23 @@ import bearData from "../helpers/data/bearData.js"
 
 const makeCard = () => {
   const myBear = bearData.getBear()
-  let domString = '';
+  let cardString = '';
 
   for (let i = 0; i < myBear.length; i++) {
     const bear = myBear[i];
-    domString += `
+    cardString += `
     <div id="${bear.uniqueId}" class="card bear-card col-sm-6">
       <img class="card-img-top" src="${bear.imgUrl}" alt="Bear image">
         <class="card-body">
           <h3 class="card-title">${bear.name}</h3>
           <button value="Attempt" type="button" class="attempt btn btn-outline-warning">Fishing Attempt</button>
           <button value="Success" type="button" class="success btn btn-outline-success">Fishing Success</button><h6>Total number of fish caught: </h6>
-          
-    </div>
-    `;
-  
+          ${makeGrid()} //not working right
+          </div>
+          `;
+             
   }
+  let domString = cardString
   utils.printToDom("#river", domString)
   document.querySelector(".attempt").addEventListener("click", bearData.clickButtonEvent)
   document.querySelector(".success").addEventListener("click", bearData.clickButtonEvent)
@@ -56,7 +57,7 @@ for (let i = 0; i < myLog.length; i++) {
 }
 
   let domString = `<table class="table table-sm">` + headerString + rowString + `</table>`
-  utils.printToDom("#grid", domString)
+ return domString
 
 }
 

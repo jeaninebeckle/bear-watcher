@@ -8,7 +8,7 @@ let logNumber = 1;
 let logArray = [];
 
 const clickButtonEvent = (e) => {
-  
+
   let fishingLog = {};
 
   fishingLog['number'] = logNumber++;
