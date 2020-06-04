@@ -15,7 +15,7 @@ const makeCard = () => {
           <h3 class="card-title">${bear.name}</h3>
           <button value="Attempt" type="button" class="attempt btn btn-outline-warning">Fishing Attempt</button>
           <button value="Success" type="button" class="success btn btn-outline-success">Fishing Success</button><h6>Total number of fish caught: </h6>
-          ${makeGrid()}
+          ${makeGrid(bear.bearId)}
           </div>
           `;
              
@@ -27,10 +27,6 @@ const makeCard = () => {
   for (const button of buttons) {
     button.addEventListener("click", bearData.clickButtonEvent)
   }
-  // myBear.forEach((bearButton) => {
-  //   bearButton.document.querySelector(".attempt").addEventListener("click", bearData.clickButtonEvent)
-  //   bearButton.document.querySelector(".success").addEventListener("click", bearData.clickButtonEvent)})
-  
 };
 
 const makeGrid = () => {
@@ -54,15 +50,21 @@ for (let i = 0; i < myLog.length; i++) {
   rowString += `
     <tbody>
       <tr>
-        <th scope="row">${logData.number}</th>
-        <td>${logData.status}</td>
+        <th scope="row">${logData.number}</th>`
+        if (logData.status === "Attempt") {
+        rowString += `<td class="table-attempt">${logData.status}</td>`
+        }
+        if (logData.status === "Success") {
+          rowString += `<td class="tableSuccess">${logData.status}</td>`
+          }
+        rowString += `
         <td>${logData.timeStamp}</td>
       </tr>
     </tbody>
   `;
 }
 
-  let domString = `<table class="table table-sm">` + headerString + rowString + `</table>`
+let domString = `<table class="table table-sm">` + headerString + rowString + `</table>`
  return domString
 
 }
