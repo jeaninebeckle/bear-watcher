@@ -15,13 +15,11 @@ const makeCard = () => {
           <h3 class="card-title">${bear.name}</h3>
           <button value="Attempt" type="button" class="attempt btn btn-outline-warning">Fishing Attempt</button>
           <button value="Success" type="button" class="success btn btn-outline-success">Fishing Success</button><h6>Total number of fish caught: </h6>
-          ${makeGrid(bear.bearId)}
+          ${makeGrid(bear.uniqueId)}
           </div>
-          `;
-             
+          `; 
   }
-  let domString = cardString
-  utils.printToDom("#river", domString)
+  utils.printToDom("#river", cardString)
 
   const buttons = document.querySelectorAll(".attempt, .success")
   for (const button of buttons) {
@@ -29,7 +27,7 @@ const makeCard = () => {
   }
 };
 
-const makeGrid = () => {
+const makeGrid = (id) => {
   const myLog = bearData.getLog();
 
   let rowString = '';
@@ -44,10 +42,12 @@ const makeGrid = () => {
     </thead>
   `;
 
+
 for (let i = 0; i < myLog.length; i++) {
   const logData = myLog[i];
-  
+  if (id = logData.bearId) {
   rowString += `
+  <div id=${id}>
     <tbody>
       <tr>
         <th scope="row">${logData.number}</th>`
@@ -61,12 +61,13 @@ for (let i = 0; i < myLog.length; i++) {
         <td>${logData.timeStamp}</td>
       </tr>
     </tbody>
+  </div>
   `;
+  console.log(`${id}`)
+  }
 }
-
 let domString = `<table class="table table-sm">` + headerString + rowString + `</table>`
- return domString
-
+return domString;
 }
 
 // const clickAttemptEvent = (e) => {

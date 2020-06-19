@@ -8,7 +8,7 @@ let logNumber = 1;
 let logArray = [];
 
 const clickButtonEvent = (e) => {
-
+  
   let fishingLog = {};
 
   fishingLog['number'] = logNumber++;
@@ -17,10 +17,9 @@ const clickButtonEvent = (e) => {
   fishingLog['bearId'] = e.target.closest(".bear-card").id
   logArray.push(fishingLog);
 
-  river.makeGrid();
-  
+  river.makeCard();
+
   console.log(fishingLog) 
-  console.log(fishingLog['bearId'])
 }
 
 const getLog = () => {
