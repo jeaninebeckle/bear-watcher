@@ -37,11 +37,10 @@ h2 {
   margin-bottom: 30px;
 }
 
-.tableSuccess {
+.Success {
   color: #28A745
 }
 
-.table-attempt {
+.Attempt {
   color: #FFC107
 }
-

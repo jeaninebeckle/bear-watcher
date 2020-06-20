@@ -3,7 +3,7 @@ import bearData from "../helpers/data/bearData.js";
 // import getNumber from '../helpers/data/bearData.js';
 
 
-const makeCard = (id) => {
+const makeCard = () => {
   const myBear = bearData.getBear()
   let cardString = '';
 
@@ -34,7 +34,7 @@ const makeGrid = (id) => {
 
   const logsForBear = myLog.filter((log) => log.bearId === id);
 
-  let rowString = `<h6>Total number of fish caught: </h6>`;
+  let rowString = '<h6>Total number of fish caught: </h6>';
 
   const headerString = `
     <thead>
@@ -53,14 +53,8 @@ for (let i = 0; i < logsForBear.length; i++) {
   <div id=${id}>
     <tbody>
       <tr>
-        <th scope="row">${i+1}</th>`
-        if (logData.status === "Attempt") {
-        rowString += `<td class="table-attempt">${logData.status}</td>`
-        }
-        if (logData.status === "Success") {
-          rowString += `<td class="tableSuccess">${logData.status}</td>`
-          }
-        rowString += `
+        <th scope="row">${i+1}</th>
+        <td class="${logData.status}">${logData.status}</td>
         <td>${logData.timeStamp}</td>
       </tr>
     </tbody>
