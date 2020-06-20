@@ -1,27 +1,27 @@
-import utils from "../helpers/utils.js"
-import bearData from "../helpers/data/bearData.js"
+import utils from "../helpers/utils.js";
+import bearData from "../helpers/data/bearData.js";
+// import getNumber from '../helpers/data/bearData.js';
 
 
-const makeCard = () => {
+const makeCard = (id) => {
   const myBear = bearData.getBear()
   let cardString = '';
 
   for (let i = 0; i < myBear.length; i++) {
     const bear = myBear[i];
+
     cardString += `
     <div id="${bear.uniqueId}" class="card bear-card col-sm-5">
       <img class="card-img-top" src="${bear.imgUrl}" alt="Bear image">
         <class="card-body">
           <h3 class="card-title">${bear.name}</h3>
           <button value="Attempt" type="button" class="attempt btn btn-outline-warning">Fishing Attempt</button>
-          <button value="Success" type="button" class="success btn btn-outline-success">Fishing Success</button><h6>Total number of fish caught: </h6>
-          ${makeGrid(bear.bearId)}
+          <button value="Success" type="button" class="success btn btn-outline-success">Fishing Success</button>
+          ${makeGrid(bear.uniqueId)}
           </div>
-          `;
-             
+          `; 
   }
-  let domString = cardString
-  utils.printToDom("#river", domString)
+  utils.printToDom("#river", cardString)
 
   const buttons = document.querySelectorAll(".attempt, .success")
   for (const button of buttons) {
@@ -29,10 +29,12 @@ const makeCard = () => {
   }
 };
 
-const makeGrid = () => {
+const makeGrid = (id) => {
   const myLog = bearData.getLog();
 
-  let rowString = '';
+  const logsForBear = myLog.filter((log) => log.bearId === id);
+
+  let rowString = `<h6>Total number of fish caught: </h6>`;
 
   const headerString = `
     <thead>
@@ -44,13 +46,14 @@ const makeGrid = () => {
     </thead>
   `;
 
-for (let i = 0; i < myLog.length; i++) {
-  const logData = myLog[i];
-  
+
+for (let i = 0; i < logsForBear.length; i++) {
+  const logData = logsForBear[i];
   rowString += `
+  <div id=${id}>
     <tbody>
       <tr>
-        <th scope="row">${logData.number}</th>`
+        <th scope="row">${i+1}</th>`
         if (logData.status === "Attempt") {
         rowString += `<td class="table-attempt">${logData.status}</td>`
         }
@@ -61,12 +64,11 @@ for (let i = 0; i < myLog.length; i++) {
         <td>${logData.timeStamp}</td>
       </tr>
     </tbody>
+  </div>
   `;
-}
-
-let domString = `<table class="table table-sm">` + headerString + rowString + `</table>`
- return domString
-
+  }
+let domString = `<table class="table table-sm">` + headerString + rowString + `</table>` 
+return domString;
 }
 
 // const clickAttemptEvent = (e) => {

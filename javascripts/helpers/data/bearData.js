@@ -4,6 +4,7 @@ import river from "../../components/river.js";
 let bearArray = [];
 let bearId = 0;
 let logNumber = 1;
+let numberCaught = 0;
 
 let logArray = [];
 
@@ -15,12 +16,13 @@ const clickButtonEvent = (e) => {
   fishingLog['status'] = e.target.value;
   fishingLog['timeStamp'] = utils.getDate()
   fishingLog['bearId'] = e.target.closest(".bear-card").id
-  logArray.push(fishingLog);
 
-  river.makeGrid();
+  logArray.push(fishingLog)
+  if (fishingLog.status === "Success") {
+    numberCaught ++
+  }
   
-  console.log(fishingLog) 
-  console.log(fishingLog['bearId'])
+  river.makeCard();
 }
 
 const getLog = () => {
@@ -40,8 +42,10 @@ const addBearToArray = () => {
   console.log(bearArray)
 }
 
+const getNumber = () => numberCaught;
+
 const getBear = () => {
   return bearArray;
 };
 
-export default { addBearToArray, getBear, clickButtonEvent, getLog }
+export default { addBearToArray, getBear, clickButtonEvent, getLog, getNumber }
