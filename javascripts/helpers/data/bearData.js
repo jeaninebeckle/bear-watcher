@@ -18,6 +18,7 @@ const clickButtonEvent = (e) => {
   fishingLog['bearId'] = e.target.closest(".bear-card").id
 
   logArray.push(fishingLog)
+  
   if (fishingLog.status === "Success") {
     numberCaught ++
   }
