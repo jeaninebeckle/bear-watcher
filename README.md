@@ -15,8 +15,8 @@ This is a homework assignment to practice using ES6 modules. It is styled with B
 1. Visit the server in your browser (defaults to localhost:8080)
 
 ### Screenshots
-<img src='./assets/images/bear1.png'>
-<img src='./assets/images/bear3.png'>
+<img src='./assets/images/bear1.png' width=500>
+<img src='./assets/images/bear3.png' width=600>
 
 ### Contributors
 * [Jeanine Beckle](https://github.com/jeaninebeckle)
