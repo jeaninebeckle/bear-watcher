@@ -34,7 +34,9 @@ const makeGrid = (id) => {
 
   const logsForBear = myLog.filter((log) => log.bearId === id);
 
-  let rowString = '<h6>Total number of fish caught: </h6>';
+  let fishingForBear = logsForBear.filter((fishing) => fishing.status === "Success");
+
+  let rowString = `<h6>Total number of fish caught: ${fishingForBear.length}</h6>`;
 
   const headerString = `
     <thead>
@@ -64,17 +66,5 @@ for (let i = 0; i < logsForBear.length; i++) {
 let domString = `<table class="table table-sm">` + headerString + rowString + `</table>` 
 return domString;
 }
-
-// const clickAttemptEvent = (e) => {
-//   e.preventDefault();
-//   console.log(utils.getDate())
-// }
-
-// const clickSuccessEvent = (e) => {
-//   e.preventDefault();
-//   console.log(utils.getDate())
-// }
-
-
 
 export default { makeCard, makeGrid }
