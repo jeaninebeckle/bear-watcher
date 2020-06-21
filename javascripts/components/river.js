@@ -1,6 +1,6 @@
 import utils from "../helpers/utils.js";
 import bearData from "../helpers/data/bearData.js";
-// import getNumber from '../helpers/data/bearData.js';
+
 
 
 const makeCard = () => {
@@ -51,6 +51,7 @@ const makeGrid = (id) => {
 
 for (let i = 0; i < logsForBear.length; i++) {
   const logData = logsForBear[i];
+  
   rowString += `
   <div id=${id}>
     <tbody>
@@ -63,7 +64,8 @@ for (let i = 0; i < logsForBear.length; i++) {
   </div>
   `;
   }
-let domString = `<table class="table table-sm">` + headerString + rowString + `</table>` 
+let domString = `<table class="table table-sm">` + headerString + rowString + `</table>`
+
 return domString;
 }
 
