@@ -14,6 +14,28 @@
  <div id="bearForm"></div>
  <div id="river"></div>
  <div id="grid"></div>
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyA4__XuJdEg5t3pQBQeCxCIZbiK0JD3L6c",
+    authDomain: "bear-watcher-a50f2.firebaseapp.com",
+    databaseURL: "https://bear-watcher-a50f2.firebaseio.com",
+    projectId: "bear-watcher-a50f2",
+    storageBucket: "bear-watcher-a50f2.appspot.com",
+    messagingSenderId: "791766622454",
+    appId: "1:791766622454:web:21aab42d6404a912708cd7"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
