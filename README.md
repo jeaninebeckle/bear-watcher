@@ -13,6 +13,7 @@ This is a homework assignment to practice using ES6 modules. It is styled with B
 1. Clone the repo to have it on your local machine
 1. Use `hs` to start up a local server
 1. Visit the server in your browser (defaults to localhost:8080)
+1. Visit the deployed site at https://bear-watcher-a50f2.web.app/
 
 ### Screenshots
 <img src='./assets/images/bear1.png' width=500>
